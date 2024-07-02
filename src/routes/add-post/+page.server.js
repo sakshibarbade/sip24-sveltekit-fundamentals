@@ -1,3 +1,4 @@
+import { redirect } from "@sveltejs/kit";
 import prisma from "$lib/prisma";
 export const actions = {
     default: async ({ request }) => {
@@ -11,6 +12,7 @@ export const actions = {
                 content,
                 image
             }
-        })
+        });
+        throw redirect(302,"/");
     }
 }
